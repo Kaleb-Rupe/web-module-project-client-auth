@@ -13,7 +13,7 @@ const FriendList = () => {
         },
       })
       .then((res) => {
-        console.log(res);
+        setFriends(res.data);
       })
       .catch((err) => {
         console.log(err.error);
@@ -24,10 +24,13 @@ const FriendList = () => {
     <div>
       <h2>FriendList</h2>
       <ul>
-        <li>Name - age - email</li>
-        <li>Name - age - email</li>
-        <li>Name - age - email</li>
-        <li>Name - age - email</li>
+        {friends.map((friend) => {
+          return (
+            <li key={friend.id}>
+              {friend.name} - {friend.age} - {friend.email}{" "}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
