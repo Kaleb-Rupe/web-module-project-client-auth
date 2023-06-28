@@ -24,6 +24,7 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         navigate("/friends");
+        console.log(res);
       })
       .catch((err) => {
         console.log(err.error);
